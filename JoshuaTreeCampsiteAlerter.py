@@ -161,6 +161,4 @@ while(True):
     if availability:
         break
 
-#insert next campground
-
 driver.quit()
