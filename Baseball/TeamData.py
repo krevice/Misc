@@ -1,4 +1,4 @@
-# This code should be run to capture the latest MLB team-based statistics
+# This code should be run to capture the latest MLB team-based statistics for the current year only
 #Excel file is generated to work from to avoid triggering bot protections on baseball-reference.com
 
 import requests
