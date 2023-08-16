@@ -1,3 +1,4 @@
+# Import the necessary functions and libraries
 from savantDataScraperFunction import savant_scrape
 import pandas as pd
 
@@ -36,9 +37,8 @@ mlb_teams = {
 }
 
 # Change to appropriate baseball savant indexes
-team_ids = mlb_teams.values()
-#team_names = sorted(mlb_teams.keys())
-years = list(range(2015, 2017))  # Years from 2015 to 2022
+team_ids = mlb_teams.values()  # Extract team IDs from the dictionary
+years = list(range(2015, 2023))  # Years from 2015 to 2022
 
 # Initialize an empty list to hold DataFrames
 savant_data_frames = []
@@ -47,7 +47,7 @@ savant_data_frames = []
 for team_id in team_ids:
     # Loop through each year for the current team
     for year in years:
-        team_data = savant_scrape(team_id, year)  # Convert year to string
+        team_data = savant_scrape(team_id, year)
 
         if team_data is not None:
             savant_data_frames.append(team_data)
@@ -55,5 +55,7 @@ for team_id in team_ids:
 # Combine all DataFrames in the list into a single DataFrame
 savant_data = pd.concat(savant_data_frames, ignore_index=True)
 
-# Now you have the combined DataFrame with data for all teams and years
-savant_data.to_csv("Savant Data.csv", index=False)
+# Save the combined DataFrame to a CSV file
+savant_data.to_csv("Savant Data (2015-2022).csv", index=False)
+
+# End of the script
